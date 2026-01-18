@@ -3,94 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriData Decision - Brief Stratégique</title>
+    <title>AgriTech - Opportunité Co-Founder</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <script src="config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
-
-        :root {
-            --primary: #111827;
-            --accent: #059669;
-            --bg-light: #F9FAFB;
-            --border: #E5E7EB;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,700;1,400&display=swap');
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #374151;
-            line-height: 1.6;
+            background-color: #FAFAF9;
+            color: #1C1917;
         }
         
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: #111827;
-        }
-
-        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 0;
-            font-weight: 500;
-            font-size: 0.875rem;
-            transition: all 0.2s;
-            border: 1px solid var(--primary);
-        }
-        .btn-primary:hover {
-            background-color: #000;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            padding: 0.75rem 2rem;
-            border-radius: 0;
-            font-weight: 500;
-            font-size: 0.875rem;
-            border: 1px solid #D1D5DB;
-            transition: all 0.2s;
-        }
-        .btn-outline:hover {
-            border-color: var(--primary);
-            background-color: #F9FAFB;
+        h1, h2, h3, .serif {
+            font-family: 'Merriweather', serif;
         }
 
         .chart-container {
             position: relative;
             width: 100%;
-            height: 300px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
         }
 
-        .tab-btn {
-            border-bottom: 2px solid transparent;
-            color: #6B7280;
-            padding-bottom: 0.5rem;
-            transition: all 0.2s;
+        .card-hover {
+            transition: all 0.3s ease;
         }
-        .tab-btn.active {
-            border-bottom: 2px solid var(--primary);
-            color: var(--primary);
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 4px; }
+        
+        .active-tab { border-bottom: 3px solid #059669; color: #059669; font-weight: 600; }
+        .inactive-tab { color: #78716c; border-bottom: 3px solid transparent; }
+        
+        /* Button Styles */
+        .btn-primary {
+            background-color: #059669;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
             font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-
-        .separator {
-            width: 3rem;
-            height: 2px;
-            background-color: var(--accent);
-            margin-bottom: 1.5rem;
+        .btn-primary:hover {
+            background-color: #047857;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+        }
+        .btn-primary:disabled {
+            background-color: #9CA3AF;
+            cursor: not-allowed;
+            transform: none;
         }
         
-        .chat-bubble {
-            white-space: pre-wrap;
+        .btn-outline {
+            background-color: transparent;
+            color: #059669;
+            padding: 0.5rem 1rem;
+            border: 1px solid #A7F3D0;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
         }
-        .chat-bubble strong {
-            font-weight: 700;
-            color: #111827;
+        .btn-outline:hover {
+            background-color: #ECFDF5;
+            border-color: #059669;
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: inherit;
+            font-weight: inherit;
+            padding: 0.5rem 0;
+            transition: all 0.2s ease;
+        }
+        
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        /* Loading Animation */
+        .dot-flashing {
+            position: relative; width: 10px; height: 10px; border-radius: 5px; background-color: #059669; color: #059669;
+            animation: dotFlashing 1s infinite linear alternate; animation-delay: .5s;
+        }
+        .dot-flashing::before, .dot-flashing::after {
+            content: ''; display: inline-block; position: absolute; top: 0;
+            width: 100%; height: 100%; border-radius: 5px; background-color: #059669; color: #059669;
+            animation: dotFlashing 1s infinite linear alternate;
+        }
+        .dot-flashing::before { left: -15px; animation-delay: 0s; }
+        .dot-flashing::after { left: 15px; animation-delay: 1s; }
+
+        @keyframes dotFlashing {
+            0% { background-color: #059669; }
+            50%, 100% { background-color: #d1fae5; }
         }
     </style>
 </head>
@@ -108,26 +132,31 @@
                     <a href="#market" class="hover:text-gray-900 transition">Marché</a>
                     <a href="#team" class="hover:text-gray-900 transition text-gray-900 border-b border-gray-900 pb-1">Équipe</a>
                 </div>
-                <button onclick="openAiChat()" class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-gray-900 border border-gray-200 px-4 py-2 hover:border-gray-900 transition rounded-sm">
-                    Assistant IA
-                </button>
             </div>
         </div>
     </nav>
 
-    <header id="vision" class="section-padding bg-white">
-        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-4 block">Recrutement Co-Founders Actif</span>
-            <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-8 text-gray-900">
-                Construisons l'Infrastructure de Décision Agricole de Demain
+    <!-- Header Hero -->
+    <header id="vision" class="relative pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-sm font-medium mb-6">
+                <span class="w-2 h-2 bg-emerald-600 rounded-full mr-2 animate-pulse"></span>
+                Recrutement Co-Founders Actif
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-stone-900 mb-6 max-w-4xl mx-auto leading-tight">
+                Construisons l'<span class="text-emerald-600 italic">Infrastructure de Décision</span> Agricole de Demain
             </h1>
-            <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+            <p class="mt-4 text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed">
                 Transformez l'imagerie drone en indicateurs de rendement actionnables. 
                 De la planification souveraine à la sécurité alimentaire, nous comblons l'angle mort de la donnée agricole.
             </p>
-            <div class="flex justify-center gap-4">
-                <button onclick="scrollToSection('team')" class="btn-primary">Voir les Rôles</button>
-                <button onclick="openAiChat()" class="btn-outline">Questionner sur la Vision</button>
+            <div class="mt-10 flex justify-center gap-4">
+                <button onclick="scrollToSection('team')" class="px-8 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Voir les Rôles
+                </button>
+                <button class="px-8 py-3 bg-white text-emerald-700 border border-emerald-200 rounded-lg font-semibold hover:bg-emerald-50 transition flex items-center">
+                    <i class="fa-solid fa-sparkles mr-2 text-emerald-500"></i> Questionner la Vision ✨
+                </button>
             </div>
         </div>
     </header>
@@ -200,12 +229,44 @@
 
     <section id="market" class="section-padding bg-gray-900 text-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="mb-12">
+            <div class="mb-12 text-center">
                 <span class="text-emerald-500 font-bold uppercase tracking-widest text-xs mb-2 block">Stratégie d'Entrée</span>
-                <h2 class="text-3xl font-bold text-white">Le Levier Institutionnel : Cas du Togo</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl">
-                    Nous attaquons le marché par le haut via le recensement agricole national du Togo. Phase opérationnelle urgente.
+                <h2 class="text-3xl font-bold text-white mb-4">Le Levier Institutionnel : Cas du Togo</h2>
+                <p class="text-gray-400 max-w-3xl mx-auto">
+                    Contrairement aux approches classiques qui ciblent immédiatement les petites exploitations, notre stratégie d'entrée repose sur le marché institutionnel (B2G). Un cas d'usage réel est déjà identifié : le Ministère de l'Environnement et de l'Agriculture du Togo doit mener un recensement agricole national. Les contraintes sont fortes avec des surfaces immenses et des délais courts, exigeant des données "défendables" auprès des bailleurs internationaux comme la Banque Mondiale ou la BAD. Notre solution répond directement à ce besoin structurant, offrant une traction immédiate avec des contrats à forte valeur, l'accès à des datasets uniques et une crédibilité étatique facilitant l'expansion régionale.
                 </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-emerald-500 transition-colors">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-building text-emerald-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold text-white">Marché Institutionnel</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Ciblage prioritaire du secteur public pour une crédibilité immédiate et des contrats à forte valeur ajoutée.
+                    </p>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-emerald-500 transition-colors">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chart-line text-emerald-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold text-white">Traction Immédiate</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Recensement agricole national du Togo : besoin urgent de données fiables pour les bailleurs internationaux.
+                    </p>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-emerald-500 transition-colors">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-globe text-emerald-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold text-white">Expansion Régionale</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Crédibilité étatique facilitant l'accès aux marchés africains et aux financements internationaux.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -230,13 +291,16 @@
                         <li>• Crédibilité Technique</li>
                         <li>• Vision Produit</li>
                     </ul>
+                    <div class="mt-4">
+                        <a href="https://www.linkedin.com/in/dzudzogbe-prince-armand-koumi" target="_blank" class="btn-outline text-xs">LinkedIn</a>
+                    </div>
                 </div>
 
                 <div class="lg:col-span-8">
                     <div class="flex space-x-6 border-b border-gray-200 mb-8 overflow-x-auto">
-                        <button onclick="switchRole('business')" id="tab-business" class="tab-btn active text-lg pb-2">Business</button>
-                        <button onclick="switchRole('product')" id="tab-product" class="tab-btn text-lg pb-2">Product</button>
-                        <button onclick="switchRole('cto')" id="tab-cto" class="tab-btn text-lg pb-2">CTO</button>
+                        <button onclick="switchRole('business')" id="tab-business" class="tab-btn active-tab text-lg pb-2">Business</button>
+                        <button onclick="switchRole('product')" id="tab-product" class="tab-btn inactive-tab text-lg pb-2">Product</button>
+                        <button onclick="switchRole('cto')" id="tab-cto" class="tab-btn inactive-tab text-lg pb-2">CTO</button>
                     </div>
 
                     <div id="content-business" class="role-content">
@@ -262,9 +326,40 @@
         </div>
     </section>
 
+    <section class="section-padding bg-white">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="mb-12">
+                <div class="separator"></div>
+                <h2 class="text-3xl font-bold mb-8">Informations Complémentaires</h2>
+            </div>
+
+            <div class="space-y-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">État d'Avancement & Rôle du Fondateur</h3>
+                    <p class="text-gray-600 text-justify">
+                        Le projet est en phase early-stage mais repose sur des fondations solides, notamment un prototype fonctionnel et des datasets sécurisés. En tant que CEO & Chief Scientist, je garantis la vision produit et l'architecture scientifique. Je m'engage à 100% pour transformer cette preuve de concept en leader du marché et je cherche désormais à compléter l'équipe fondatrice pour accélérer l'exécution.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Participation au Capital (Equity)</h3>
+                    <p class="text-gray-600 text-justify">
+                        La structure de la startup est pensée pour une réussite collective. En tant que co-fondateurs de la première heure, une part significative du capital (Equity) sera allouée à chaque membre de l'équipe fondatrice. La répartition exacte sera discutée de manière transparente, en fonction du profil, de l'expérience et du niveau d'engagement de chacun. L'objectif est de s'assurer que chaque fondateur est pleinement incentivé sur la valeur créée à long terme, avec un vesting aligné sur les ambitions de croissance de l'entreprise.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section-padding bg-gray-50 border-t border-gray-200">
         <div class="max-w-2xl mx-auto px-6 text-center">
             <h2 class="text-2xl font-bold mb-8">Rejoindre l'Aventure</h2>
+            <div class="mb-8 text-left">
+                <h3 class="text-lg font-bold mb-4">Ce que nous construisons ensemble</h3>
+                <p class="text-gray-600 text-justify">
+                    Nous ne cherchons pas des collaborateurs, mais des associés. Cela implique un engagement réel, une vision à long terme et une sensibilité particulière pour l'impact de la technologie sur l'agronomie et le développement économique. Si vous avez l'envie de construire une infrastructure souveraine dans un contexte international et multiculturel, ce projet est fait pour vous.
+                </p>
+            </div>
             <form id="applyForm" class="bg-white p-8 border border-gray-200 shadow-sm text-left space-y-5">
                 <div class="grid grid-cols-2 gap-5">
                     <div>
@@ -289,25 +384,6 @@
         <p class="text-sm font-bold text-gray-900 mb-2 uppercase">AGRIDATA DECISION</p>
         <p class="text-xs text-gray-500">© 2026 - Document Confidentiel.</p>
     </footer>
-
-    <!-- AI Drawer -->
-    <div id="aiChatDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[100] border-l border-gray-200 flex flex-col">
-        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
-            <span class="text-xs font-bold uppercase tracking-widest text-gray-900">Assistant Visionnaire</span>
-            <button onclick="closeAiChat()" class="text-gray-400 hover:text-gray-900 text-xl">&times;</button>
-        </div>
-        <div id="chatMessages" class="flex-1 overflow-y-auto p-6 space-y-4 text-sm bg-white">
-            <div class="bg-gray-100 p-4 border border-gray-200 text-gray-700">
-                Bonjour. Je réponds strictement aux questions sur le projet.
-            </div>
-        </div>
-        <div class="p-4 border-t border-gray-100 bg-gray-50">
-            <div class="flex gap-2">
-                <input type="text" id="chatInput" placeholder="Question..." class="flex-1 p-3 border border-gray-300 text-sm outline-none">
-                <button onclick="sendChatMessage()" class="bg-gray-900 text-white px-4 py-2 hover:bg-black">Envoyer</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Matchmaker Modal -->
     <div id="matchmakerModal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4 bg-gray-900/50 backdrop-blur-sm">
@@ -340,8 +416,16 @@
             ['business', 'product', 'cto'].forEach(t => {
                 const btn = document.getElementById(`tab-${t}`);
                 const content = document.getElementById(`content-${t}`);
-                if (t === role) { btn.classList.add('active'); content.classList.remove('hidden'); }
-                else { btn.classList.remove('active'); content.classList.add('hidden'); }
+                if (t === role) { 
+                    btn.classList.add('active-tab'); 
+                    btn.classList.remove('inactive-tab');
+                    content.classList.remove('hidden'); 
+                }
+                else { 
+                    btn.classList.remove('active-tab'); 
+                    btn.classList.add('inactive-tab');
+                    content.classList.add('hidden'); 
+                }
             });
         }
 
@@ -366,21 +450,6 @@
                 const json = await res.json();
                 return json.candidates?.[0]?.content?.parts?.[0]?.text || "Erreur.";
             } catch { return "Erreur."; }
-        }
-
-        function openAiChat() { document.getElementById('aiChatDrawer').classList.remove('hidden'); setTimeout(() => document.getElementById('aiChatDrawer').classList.remove('translate-x-full'), 10); }
-        function closeAiChat() { document.getElementById('aiChatDrawer').classList.add('translate-x-full'); setTimeout(() => document.getElementById('aiChatDrawer').classList.add('hidden'), 300); }
-        
-        async function sendChatMessage() {
-            const input = document.getElementById('chatInput');
-            const box = document.getElementById('chatMessages');
-            const text = input.value.trim();
-            if(!text) return;
-            box.innerHTML += `<div class="text-right mb-4"><span class="bg-gray-900 text-white p-2 inline-block">${text}</span></div>`;
-            input.value = "";
-            const raw = await callGemini(text + " " + context + " RÉPONSES STRICTES : Uniquement la réponse, max 3 phrases, pas de blabla.");
-            box.innerHTML += `<div class="mb-4"><div class="bg-gray-100 p-3 text-gray-700">${formatAiText(raw)}</div></div>`;
-            box.scrollTop = box.scrollHeight;
         }
 
         function openMatchmaker() { document.getElementById('matchmakerModal').classList.remove('hidden'); }
@@ -424,9 +493,26 @@
                     }]
                 },
                 options: {
-                    responsive: true, maintainAspectRatio: false,
-                    scales: { r: { min: 0, max: 100, ticks: { display: false, stepSize: 20, callback: v => v } } },
-                    plugins: { legend: { position: 'bottom' } }
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            min: 0,
+                            max: 100,
+                            ticks: {
+                                display: false,
+                                stepSize: 20,
+                                callback: function(value) {
+                                    return value;
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
                 }
             });
         };
