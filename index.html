@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriData Decision - Brief Stratégique</title>
+    <title>AgriData Decision - Vision</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
@@ -65,38 +65,11 @@
             height: 300px;
         }
 
-        .tab-btn {
-            border-bottom: 2px solid transparent;
-            color: #6B7280;
-            padding-bottom: 0.5rem;
-            transition: all 0.2s;
-        }
-        .tab-btn.active {
-            border-bottom: 2px solid var(--primary);
-            color: var(--primary);
-            font-weight: 600;
-        }
-
         .separator {
             width: 3rem;
             height: 2px;
             background-color: var(--accent);
             margin-bottom: 1.5rem;
-        }
-        
-        /* Styles pour le Chat IA */
-        .chat-bubble {
-            white-space: pre-wrap; /* Conserve les retours à la ligne */
-        }
-        .chat-bubble strong {
-            font-weight: 700;
-            color: #111827;
-        }
-        .chat-bubble ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
         }
     </style>
 </head>
@@ -110,10 +83,10 @@
                     <span class="font-bold text-lg tracking-wide text-gray-900 uppercase">AgriData<span class="text-emerald-700">Decision</span></span>
                 </div>
                 <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-500">
-                    <a href="#vision" class="hover:text-gray-900">Vision</a>
-                    <a href="#solution" class="hover:text-gray-900">Solution</a>
-                    <a href="#market" class="hover:text-gray-900">Marché</a>
-                    <a href="#team" class="text-gray-900 border-b border-gray-900 pb-1">Équipe</a>
+                    <a href="index.html" class="text-gray-900 border-b border-gray-900 pb-1">Vision</a>
+                    <a href="solution.html" class="hover:text-gray-900">Solution</a>
+                    <a href="market.html" class="hover:text-gray-900">Marché</a>
+                    <a href="team.html" class="hover:text-gray-900">Équipe</a>
                 </div>
                 <button onclick="openAiChat()" class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-gray-900 border border-gray-200 px-4 py-2 hover:border-gray-900 transition">
                     Assistant IA
@@ -123,7 +96,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header id="vision" class="section-padding bg-white">
+    <header class="section-padding bg-white">
         <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-4 block">Recrutement Co-Founders Actif</span>
             <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-8 text-gray-900">
@@ -134,7 +107,7 @@
                 De la planification souveraine à la sécurité alimentaire, nous comblons l'angle mort de la donnée agricole.
             </p>
             <div class="flex justify-center gap-4">
-                <button onclick="scrollToSection('team')" class="btn-primary">Voir les Rôles</button>
+                <button onclick="window.location.href='team.html'" class="btn-primary">Voir les Rôles</button>
                 <button onclick="openAiChat()" class="btn-outline">Questionner la Vision</button>
             </div>
         </div>
@@ -165,253 +138,6 @@
         </div>
     </section>
 
-    <!-- Solution Section (Detailed) -->
-    <section id="solution" class="section-padding bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="mb-16">
-                <div class="separator"></div>
-                <h2 class="text-3xl font-bold mb-6">La Solution : De l'image à la décision</h2>
-                <p class="max-w-3xl text-gray-600">
-                    Nous développons une plateforme SaaS d’analyse d’imagerie drone, orientée estimation de rendement. 
-                    Elle ne fournit pas seulement un chiffre, mais un niveau de fiabilité indispensable pour un usage institutionnel.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                <div class="border-t border-gray-200 pt-6">
-                    <span class="text-4xl font-light text-gray-200 mb-4 block">01</span>
-                    <h3 class="text-xl font-bold mb-3">Acquisition Simplifiée</h3>
-                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
-                        <li>Compatible tout drone (RGB, Multi, Hyper)</li>
-                        <li>Upload direct Mobile/Web</li>
-                        <li>Traitement automatisé rapide</li>
-                    </ul>
-                </div>
-                <div class="border-t border-gray-200 pt-6">
-                    <span class="text-4xl font-light text-gray-200 mb-4 block">02</span>
-                    <h3 class="text-xl font-bold mb-3">Analyse Intelligente</h3>
-                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
-                        <li>Algorithmes calibrés par culture/région</li>
-                        <li>Intégration données terrain optionnelle</li>
-                        <li>Détection variabilité intra-parcellaire</li>
-                    </ul>
-                </div>
-                <div class="border-t border-gray-200 pt-6">
-                    <span class="text-4xl font-light text-gray-200 mb-4 block">03</span>
-                    <h3 class="text-xl font-bold mb-3">Insights Actionnables</h3>
-                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
-                        <li>Estimation rendement (t/ha)</li>
-                        <li>Cartographie spatiale</li>
-                        <li><strong>Indicateur de Confiance</strong> (Unique)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="bg-gray-50 p-8 border border-gray-100">
-                <h3 class="text-lg font-bold mb-4">Facteurs de Différenciation</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600">
-                    <div class="flex items-start">
-                        <span class="mr-2 text-emerald-700 font-bold">—</span>
-                        <span>Calibration locale (cultures, climats, pratiques)</span>
-                    </div>
-                    <div class="flex items-start">
-                        <span class="mr-2 text-emerald-700 font-bold">—</span>
-                        <span>Approche multi-capteurs (RGB, puis Multispectral/Hyperspectral)</span>
-                    </div>
-                    <div class="flex items-start">
-                        <span class="mr-2 text-emerald-700 font-bold">—</span>
-                        <span>Transparence sur les variables explicatives (White box)</span>
-                    </div>
-                    <div class="flex items-start">
-                        <span class="mr-2 text-emerald-700 font-bold">—</span>
-                        <span>Tarification adaptée aux contextes publics et pays émergents</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Market Strategy -->
-    <section id="market" class="section-padding bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="mb-12">
-                <span class="text-emerald-500 font-bold uppercase tracking-widest text-xs mb-2 block">Stratégie d'Entrée</span>
-                <h2 class="text-3xl font-bold text-white">Le Levier Institutionnel : Cas du Togo</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl">
-                    Nous attaquons le marché par le haut via le recensement agricole national, soutenu par les bailleurs internationaux. Cela garantit volume, données et crédibilité.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-8 border-t-2 border-emerald-500">
-                    <h3 class="text-lg font-bold mb-2">Institutionnel (B2G)</h3>
-                    <p class="text-sm text-gray-400">Projet Togo : recensement national. Accès privilégié aux données souveraines et validation technologique à grande échelle.</p>
-                </div>
-                <div class="bg-gray-800 p-8 border-t-2 border-gray-600">
-                    <h3 class="text-lg font-bold mb-2">SaaS B2B</h3>
-                    <p class="text-sm text-gray-400">Expansion vers les coopératives et grands domaines privés régionaux une fois la technologie éprouvée.</p>
-                </div>
-                <div class="bg-gray-800 p-8 border-t-2 border-gray-600">
-                    <h3 class="text-lg font-bold mb-2">Data API</h3>
-                    <p class="text-sm text-gray-400">Infrastructure de données pour les assurances (paramétrique) et la finance agricole mondiale.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="section-padding bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="mb-12 text-center">
-                <h2 class="text-3xl font-bold mb-4">Équipe Fondatrice</h2>
-                <p class="text-gray-600">Une structure solide pour porter l'ambition.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <!-- CEO Profile -->
-                <div class="lg:col-span-4 bg-gray-50 p-8 border border-gray-200 text-center">
-                    <div class="w-24 h-24 bg-gray-200 mx-auto mb-6 flex items-center justify-center text-gray-400 text-xs uppercase tracking-widest">
-                        
-                    <img src="/Users/armandkoumi/Downloads/1001888294.jpg" alt="KOUMI">
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900">KOUMI D. Prince Armnd</h3>
-                    <p class="text-sm text-emerald-700 font-bold uppercase tracking-widest mb-4">CEO & Chief Scientist</p>
-                    <p class="text-sm text-gray-600 text-justify mb-4">
-                        DataScientist Agro-envrinomental. Porteur de la vision produit et garant de l'architecture scientifique.
-                    </p>
-                    <div class="text-left text-xs text-gray-500 space-y-2 border-t border-gray-200 pt-4">
-                        <p>• Architecture Scientifique</p>
-                        <p>• Crédibilité Technique</p>
-                        <p>• Vision Produit</p>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-8">
-                    <div class="flex space-x-6 border-b border-gray-200 mb-8 overflow-x-auto">
-                        <button onclick="switchRole('business')" id="tab-business" class="tab-btn active text-lg pb-2">Business</button>
-                        <button onclick="switchRole('product')" id="tab-product" class="tab-btn text-lg pb-2">Product</button>
-                        <button onclick="switchRole('cto')" id="tab-cto" class="tab-btn text-lg pb-2">CTO</button>
-                    </div>
-
-                    <div id="content-business" class="role-content">
-                        <h3 class="text-2xl font-bold mb-4">Le "Builder" Business (COO)</h3>
-                        <p class="text-gray-600 mb-6">
-                            Vous structurez le Go-to-Market et transformez les opportunités institutionnelles en revenus récurrents.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-gray-50 p-4 border border-gray-100">
-                                <h4 class="font-bold text-sm uppercase mb-2">Missions Clés</h4>
-                                <ul class="text-sm text-gray-600 list-disc list-inside">
-                                    <li>Structuration du modèle économique</li>
-                                    <li>Relations Bailleurs / Ministères</li>
-                                    <li>Préparation financements & Subventions</li>
-                                </ul>
-                            </div>
-                            <div class="bg-gray-50 p-4 border border-gray-100">
-                                <h4 class="font-bold text-sm uppercase mb-2">Profil Recherché</h4>
-                                <ul class="text-sm text-gray-600 list-disc list-inside">
-                                    <li>Expérience B2B / B2G</li>
-                                    <li>Capacité de négociation internationale</li>
-                                    <li>Vision stratégique long terme</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="content-product" class="role-content hidden">
-                        <h3 class="text-2xl font-bold mb-4">L'Architecte Produit (CPO)</h3>
-                        <p class="text-gray-600 mb-6">
-                            Vous transformez un prototype scientifique complexe en une solution utilisable par des techniciens terrain au Togo ou des coopératives en Europe.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-gray-50 p-4 border border-gray-100">
-                                <h4 class="font-bold text-sm uppercase mb-2">Missions Clés</h4>
-                                <ul class="text-sm text-gray-600 list-disc list-inside">
-                                    <li>UX simple pour utilisateurs non-techniques</li>
-                                    <li>Passage Prototype → Produit robuste</li>
-                                    <li>Gestion de la Roadmap technique</li>
-                                </ul>
-                            </div>
-                            <div class="bg-gray-50 p-4 border border-gray-100">
-                                <h4 class="font-bold text-sm uppercase mb-2">Profil Recherché</h4>
-                                <ul class="text-sm text-gray-600 list-disc list-inside">
-                                    <li>Expérience UX/UI terrain</li>
-                                    <li>Pragmatisme "Low bandwidth"</li>
-                                    <li>Culture Product-Led Growth</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="content-cto" class="role-content hidden">
-                        <h3 class="text-2xl font-bold mb-4">Le CTO Data</h3>
-                        <p class="text-gray-600 mb-6">
-                            Vous construisez l'infrastructure capable d'ingérer et traiter des téraoctets d'imagerie à l'échelle nationale.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-gray-50 p-4 border border-gray-100">
-                                <h4 class="font-bold text-sm uppercase mb-2">Missions Clés</h4>
-                                <ul class="text-sm text-gray-600 list-disc list-inside">
-                                    <li>Scalabilité Technique Cloud</li>
-                                    <li>Pipeline de Computer Vision</li>
-                                    <li>Sécurité des données souveraines</li>
-                                </ul>
-                            </div>
-                            <div class="bg-gray-50 p-4 border border-gray-100">
-                                <h4 class="font-bold text-sm uppercase mb-2">Profil Recherché</h4>
-                                <ul class="text-sm text-gray-600 list-disc list-inside">
-                                    <li>Expertise Data Engineering</li>
-                                    <li>Background Python / Cloud (AWS/GCP)</li>
-                                    <li>Rigueur industrielle</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 pt-8 border-t border-gray-100">
-                        <button onclick="openMatchmaker()" class="btn-primary w-full md:w-auto">
-                            Vérifier ma compatibilité (IA)
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Application Form -->
-    <section class="section-padding bg-gray-50 border-t border-gray-200">
-        <div class="max-w-2xl mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold mb-8">Rejoindre l'Aventure</h2>
-            <form id="applyForm" class="bg-white p-8 border border-gray-200 shadow-sm text-left space-y-5">
-                <div class="grid grid-cols-2 gap-5">
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Nom Complet</label>
-                        <input type="text" name="name" required class="w-full p-3 bg-gray-50 border border-gray-200 focus:border-gray-900 outline-none text-sm transition">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-gray-500 mb-1">LinkedIn</label>
-                        <input type="url" name="linkedin" required class="w-full p-3 bg-gray-50 border border-gray-200 focus:border-gray-900 outline-none text-sm transition">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Rôle Visé</label>
-                    <select name="role" class="w-full p-3 bg-gray-50 border border-gray-200 focus:border-gray-900 outline-none text-sm transition">
-                        <option value="Business">Co-Founder Business</option>
-                        <option value="Product">Co-Founder Product</option>
-                        <option value="CTO">Co-Founder CTO</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Motivation</label>
-                    <textarea name="motivation" rows="3" placeholder="Votre valeur ajoutée en 2 phrases..." required class="w-full p-3 bg-gray-50 border border-gray-200 focus:border-gray-900 outline-none text-sm transition"></textarea>
-                </div>
-                <button type="submit" id="submitBtn" class="btn-primary w-full">Envoyer Candidature</button>
-            </form>
-            <p class="text-xs text-gray-400 mt-4">Données transmises de manière sécurisée.</p>
-        </div>
-    </section>
-
     <footer class="bg-white border-t border-gray-100 py-12 text-center">
         <p class="text-sm font-bold text-gray-900 mb-2">AGRIDATA DECISION</p>
         <p class="text-xs text-gray-500">© 2026 - Document Confidentiel de Recrutement.</p>
@@ -438,197 +164,66 @@
         </div>
     </div>
 
-    <!-- Matchmaker Modal -->
-    <div id="matchmakerModal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4 bg-gray-900/50 backdrop-blur-sm">
-        <div class="bg-white w-full max-w-lg shadow-2xl border border-gray-200">
-            <div class="p-8">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-xl font-bold text-gray-900">Analyse de Compatibilité</h3>
-                    <button onclick="closeMatchmaker()" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
-                </div>
-                <p class="text-sm text-gray-600 mb-4">Collez votre bio professionnelle. L'IA analysera votre adéquation avec nos besoins.</p>
-                <textarea id="matchmakerInput" rows="5" class="w-full p-3 border border-gray-300 text-sm mb-6 outline-none focus:border-gray-900" placeholder="Ex: 10 ans d'expérience en vente B2B..."></textarea>
-                <div id="matchmakerResult" class="hidden mb-6 p-4 bg-gray-50 border border-gray-200 text-sm text-gray-700 max-h-48 overflow-y-auto chat-bubble"></div>
-                <button id="matchmakerBtn" onclick="analyzeMatch()" class="btn-primary w-full">
-                    Lancer l'Analyse
-                </button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // --- Gemini Config ---
-        const apiKey = "AIzaSyA6M99YxYjdF2r2c-_fYQTnK3J2lS64ORA"; 
-        const MODEL_NAME = "gemini-2.5-flash-preview-09-2025";
-        const context = `Startup AgriDataDecision. Vision: Infrastructure décision agricole. Solution: Drone, IA, Indice de Confiance. Marché: Togo (B2G), Europe (B2B). Rôles: Business, Product, CTO.`;
-
-        // --- Google Apps Script URL ---
-        // INSTRUCTION: Remplacez l'URL ci-dessous par celle de votre déploiement Web App
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxScl2_-SuwEGN1vkH4hIcmnCwPIbRMNS6Q6wV0bs9PvxPNtAJAijuQXkXHeYrtxJo/exec"; 
-
-        // --- Helpers ---
-        function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
-        
-        function switchRole(role) {
-            ['business', 'product', 'cto'].forEach(t => {
-                const btn = document.getElementById(`tab-${t}`);
-                const content = document.getElementById(`content-${t}`);
-                if (t === role) {
-                    btn.classList.add('active');
-                    content.classList.remove('hidden');
-                } else {
-                    btn.classList.remove('active');
-                    content.classList.add('hidden');
-                }
-            });
-        }
-
-        // Nettoyage simple du texte IA (Markdown basique)
-        function formatAiText(text) {
-            if (!text) return "";
-            // Gras
-            let formatted = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            // Listes
-            formatted = formatted.replace(/^\* (.*$)/gm, '<ul><li>$1</li></ul>');
-            // Nettoyage des listes adjacentes
-            formatted = formatted.replace(/<\/ul>\s*<ul>/g, ''); 
-            return formatted;
-        }
-
-        async function callGemini(prompt) {
-            if (!apiKey) return "Clé API manquante. Ajoutez votre clé API Google dans le code (variable apiKey).";
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${apiKey}`;
-            try {
-                const res = await fetch(url, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                });
-                const json = await res.json();
-                return json.candidates?.[0]?.content?.parts?.[0]?.text || "Pas de réponse.";
-            } catch { return "Erreur de connexion à l'IA."; }
-        }
-
-        // --- UI Logic ---
-        function openAiChat() { document.getElementById('aiChatDrawer').classList.remove('hidden'); setTimeout(() => document.getElementById('aiChatDrawer').classList.remove('translate-x-full'), 10); }
-        function closeAiChat() { document.getElementById('aiChatDrawer').classList.add('translate-x-full'); setTimeout(() => document.getElementById('aiChatDrawer').classList.add('hidden'), 300); }
-        
-        async function sendChatMessage() {
-            const input = document.getElementById('chatInput');
-            const box = document.getElementById('chatMessages');
-            const text = input.value.trim();
-            if(!text) return;
-            
-            box.innerHTML += `<div class="text-right mb-4"><span class="bg-gray-900 text-white p-3 inline-block border border-gray-900 chat-bubble">${text}</span></div>`;
-            input.value = "";
-            
-            // Modified prompt to enforce strict answering
-            const rawReply = await callGemini(text + " Contexte: " + context + ". Consigne impérative : Réponds uniquement et strictement à la question posée. Pas de phrases de politesse superflues, pas de contexte non sollicité. Sois direct.");
-            const cleanReply = formatAiText(rawReply);
-            
-            box.innerHTML += `<div class="mb-4"><div class="bg-gray-100 p-3 inline-block border border-gray-200 text-gray-700 chat-bubble">${cleanReply}</div></div>`;
-            box.scrollTop = box.scrollHeight;
-        }
-
-        function openMatchmaker() { document.getElementById('matchmakerModal').classList.remove('hidden'); }
-        function closeMatchmaker() { document.getElementById('matchmakerModal').classList.add('hidden'); }
-        async function analyzeMatch() {
-            const txt = document.getElementById('matchmakerInput').value;
-            const res = document.getElementById('matchmakerResult');
-            const btn = document.getElementById('matchmakerBtn');
-            if(!txt) return;
-            
-            btn.innerText = "Analyse...";
-            btn.disabled = true;
-            
-            const rawReply = await callGemini(`Analyse ce profil pour AgriData (Business, Product, CTO) : ${txt}`);
-            const cleanReply = formatAiText(rawReply);
-            
-            res.innerHTML = cleanReply;
-            res.classList.remove('hidden');
-            btn.innerText = "Lancer l'Analyse";
-            btn.disabled = false;
-        }
-
-        // --- Chart ---
-        window.onload = function() {
-            new Chart(document.getElementById('impactChart'), {
-                type: 'radar',
-                data: {
-                    labels: ['Précision', 'Rapidité', 'Scalabilité', 'Auditabilité', 'Coût'],
-                    datasets: [{
-                        label: 'Actuel',
-                        data: [30, 20, 25, 10, 40],
-                        backgroundColor: 'rgba(156, 163, 175, 0.2)',
-                        borderColor: '#9CA3AF',
-                        borderWidth: 1
-                    }, {
-                        label: 'AgriData',
-                        data: [85, 90, 80, 95, 75],
-                        backgroundColor: 'rgba(5, 150, 105, 0.2)',
-                        borderColor: '#059669',
-                        borderWidth: 2
-                    }]
+        // Chart.js code for impact chart
+        const ctx = document.getElementById('impactChart').getContext('2d');
+        const impactChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Méthodes Traditionnelles', 'Estimation Satellitaire', 'Notre Solution'],
+                datasets: [{
+                    label: 'Précision (%)',
+                    data: [60, 75, 90],
+                    backgroundColor: ['#E5E7EB', '#059669', '#111827'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
                 },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    scales: { 
-                        r: { 
-                            min: 0, 
-                            max: 100, 
-                            ticks: { 
-                                display: false,
-                                stepSize: 20,
-                                callback: function(value) { return value; } 
-                            }, 
-                            grid: { color: '#E5E7EB' } 
-                        } 
-                    },
-                    plugins: { legend: { position: 'bottom' } }
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { callback: value => value + '%' }
+                    }
                 }
-            });
-        };
-
-        // --- Google Sheet Form ---
-        document.getElementById('applyForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            const originalText = btn.innerText;
-            btn.innerText = "Envoi...";
-            btn.disabled = true;
-
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                if (GOOGLE_SCRIPT_URL) {
-                     // Envoi réel vers Google Apps Script
-                     // Utilisation de 'no-cors' pour éviter les erreurs de navigateur,
-                     // mais notez que cela empêche de lire la réponse du serveur.
-                     await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors', 
-                        body: JSON.stringify(data),
-                        headers: {
-                            'Content-Type': 'text/plain' // Souvent mieux géré par GAS en no-cors
-                        }
-                    });
-                    alert("Candidature transmise avec succès ! (Note: Vérifiez votre Google Sheet)");
-                    e.target.reset();
-                } else {
-                    // Simulation si l'URL n'est pas configurée
-                    await new Promise(r => setTimeout(r, 1000));
-                    alert("Candidature simulée envoyée ! \n\nATTENTION : Pour recevoir réellement les données, vous devez :\n1. Créer un Google Sheet + Apps Script\n2. Copier l'URL Web App\n3. La coller dans la variable GOOGLE_SCRIPT_URL du code.");
-                    e.target.reset();
-                }
-            } catch (error) {
-                console.error(error);
-                alert("Erreur technique lors de l'envoi.");
-            } finally {
-                btn.innerText = originalText;
-                btn.disabled = false;
             }
         });
+
+        // AI Chat functions
+        function openAiChat() {
+            document.getElementById('aiChatDrawer').classList.remove('translate-x-full');
+        }
+
+        function closeAiChat() {
+            document.getElementById('aiChatDrawer').classList.add('translate-x-full');
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            if (input.value.trim()) {
+                const userMessage = document.createElement('div');
+                userMessage.className = 'bg-gray-900 text-white p-4 ml-12';
+                userMessage.textContent = input.value;
+                messages.appendChild(userMessage);
+                
+                // Simulate AI response
+                setTimeout(() => {
+                    const aiMessage = document.createElement('div');
+                    aiMessage.className = 'bg-gray-100 p-4 mr-12 text-gray-700';
+                    aiMessage.textContent = 'Merci pour votre question. Je vais y répondre...';
+                    messages.appendChild(aiMessage);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+                
+                input.value = '';
+            }
+        }
     </script>
 </body>
 </html>
