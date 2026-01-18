@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriData Decision - Équipe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --primary: #111827;
+            --accent: #059669;
+            --bg-light: #F9FAFB;
+            --border: #E5E7EB;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #374151;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #111827;
+        }
+
+        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            border: 1px solid var(--primary);
+        }
+        .btn-primary:hover {
+            background-color: #000;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            padding: 0.75rem 2rem;
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 0.875rem;
+            border: 1px solid #D1D5DB;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background-color: #F9FAFB;
+        }
+
+        .tab-btn {
+            border-bottom: 2px solid transparent;
+            color: #6B7280;
+            padding-bottom: 0.5rem;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .separator {
+            width: 3rem;
+            height: 2px;
+            background-color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <span class="font-bold text-lg tracking-wide text-gray-900 uppercase">AgriData<span class="text-emerald-700">Decision</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-500">
+                    <a href="index.html" class="hover:text-gray-900">Vision</a>
+                    <a href="solution.html" class="hover:text-gray-900">Solution</a>
+                    <a href="market.html" class="hover:text-gray-900">Marché</a>
+                    <a href="team.html" class="text-gray-900 border-b border-gray-900 pb-1">Équipe</a>
+                </div>
+                <button onclick="openAiChat()" class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-gray-900 border border-gray-200 px-4 py-2 hover:border-gray-900 transition">
+                    Assistant IA
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Team Section -->
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl font-bold mb-4">Équipe Fondatrice</h2>
+                <p class="text-gray-600">Une structure solide pour porter l'ambition.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- CEO Profile -->
+                <div class="lg:col-span-4 bg-gray-50 p-8 border border-gray-200 text-center">
+                    <div class="w-24 h-24 bg-gray-200 mx-auto mb-6 flex items-center justify-center text-gray-400 text-xs uppercase tracking-widest">
+                        <img src="1001888294.jpg" alt="KOUMI">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">KOUMI D. Prince Armnd</h3>
+                    <p class="text-sm text-emerald-700 font-bold uppercase tracking-widest mb-4">CEO & Chief Scientist</p>
+                    <p class="text-sm text-gray-600 text-justify mb-4">
+                        DataScientist Agro-envrinomental. Porteur de la vision produit et garant de l'architecture scientifique.
+                    </p>
+                    <div class="text-left text-xs text-gray-500 space-y-2 border-t border-gray-200 pt-4">
+                        <p>• Architecture Scientifique</p>
+                        <p>• Crédibilité Technique</p>
+                        <p>• Vision Produit</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8">
+                    <div class="flex space-x-6 border-b border-gray-200 mb-8 overflow-x-auto">
+                        <button onclick="switchRole('business')" id="tab-business" class="tab-btn active text-lg pb-2">Business</button>
+                        <button onclick="switchRole('product')" id="tab-product" class="tab-btn text-lg pb-2">Product</button>
+                        <button onclick="switchRole('cto')" id="tab-cto" class="tab-btn text-lg pb-2">CTO</button>
+                    </div>
+
+                    <div id="content-business" class="role-content">
+                        <h3 class="text-2xl font-bold mb-4">Le "Builder" Business (COO)</h3>
+                        <p class="text-gray-600 mb-6">
+                            Vous structurez le Go-to-Market et transformez les opportunités institutionnelles en revenus récurrents.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-gray-50 p-4 border border-gray-100">
+                                <h4 class="font-bold text-sm uppercase mb-2">Missions Clés</h4>
+                                <ul class="text-sm text-gray-600 list-disc list-inside">
+                                    <li>Structuration du modèle économique</li>
+                                    <li>Relations Bailleurs / Ministères</li>
+                                    <li>Préparation financements & Subventions</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 border border-gray-100">
+                                <h4 class="font-bold text-sm uppercase mb-2">Profil Recherché</h4>
+                                <ul class="text-sm text-gray-600 list-disc list-inside">
+                                    <li>Expérience B2B / B2G</li>
+                                    <li>Capacité de négociation internationale</li>
+                                    <li>Vision stratégique long terme</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="content-product" class="role-content hidden">
+                        <h3 class="text-2xl font-bold mb-4">L'Architecte Produit (CPO)</h3>
+                        <p class="text-gray-600 mb-6">
+                            Vous transformez un prototype scientifique complexe en une solution utilisable par des techniciens terrain au Togo ou des coopératives en Europe.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-gray-50 p-4 border border-gray-100">
+                                <h4 class="font-bold text-sm uppercase mb-2">Missions Clés</h4>
+                                <ul class="text-sm text-gray-600 list-disc list-inside">
+                                    <li>UX simple pour utilisateurs non-techniques</li>
+                                    <li>Passage Prototype → Produit robuste</li>
+                                    <li>Gestion de la Roadmap technique</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 border border-gray-100">
+                                <h4 class="font-bold text-sm uppercase mb-2">Profil Recherché</h4>
+                                <ul class="text-sm text-gray-600 list-disc list-inside">
+                                    <li>Expérience UX/UI terrain</li>
+                                    <li>Pragmatisme "Low bandwidth"</li>
+                                    <li>Culture Product-Led Growth</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="content-cto" class="role-content hidden">
+                        <h3 class="text-2xl font-bold mb-4">Le CTO Data</h3>
+                        <p class="text-gray-600 mb-6">
+                            Vous construisez l'infrastructure capable d'ingérer et traiter des téraoctets d'imagerie à l'échelle nationale.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-gray-50 p-4 border border-gray-100">
+                                <h4 class="font-bold text-sm uppercase mb-2">Missions Clés</h4>
+                                <ul class="text-sm text-gray-600 list-disc list-inside">
+                                    <li>Scalabilité Technique Cloud</li>
+                                    <li>Pipeline de Computer Vision</li>
+                                    <li>Sécurité des données souveraines</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 border border-gray-100">
+                                <h4 class="font-bold text-sm uppercase mb-2">Profil Recherché</h4>
+                                <ul class="text-sm text-gray-600 list-disc list-inside">
+                                    <li>Expertise Data Engineering</li>
+                                    <li>Background Python / Cloud (AWS/GCP)</li>
+                                    <li>Rigueur industrielle</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-gray-100">
+                        <button onclick="openMatchmaker()" class="btn-primary w-full md:w-auto">
+                            Vérifier ma compatibilité (IA)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="section-padding bg-gray-50 border-t border-gray-200">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold mb-8">Rejoindre l'Aventure</h2>
+            <form id="applyForm" class="bg-white p-8 border border-gray-200 shadow-sm text-left space-y-5">
+                <div class="grid grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Nom Complet</label>
+                        <input type="text" name="name" required class="w-full p-3 bg-gray-50 border border-gray-200 focus:border-gray-900 outline-none text-sm transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-500 mb-1">LinkedIn</label>
+                        <input type="url" name="linkedin" required class="w-full p-3 bg-gray-50 border border-gray-200 focus:border-gray-900 outline-none text-sm transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Rôle Visé</label>
+                    <select name="role" class="w-full p-3 bg-gray-50 border border-gray-200 focus:border-gray-900 outline-none text-sm transition">
+                        <option value="Business">Co-Founder Business</option>
+                        <option value="Product">Co-Founder Product</option>
+                        <option value="CTO">Co-Founder CTO</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-500 mb-1">Motivation</label>
+                    <textarea name="motivation" rows="3" placeholder="Votre valeur ajoutée en 2 phrases..." required class="w-full p-3 bg-gray-50 border border-gray-200 focus:border-gray-900 outline-none text-sm transition"></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="btn-primary w-full">Envoyer Candidature</button>
+            </form>
+            <p class="text-xs text-gray-400 mt-4">Données transmises de manière sécurisée.</p>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-100 py-12 text-center">
+        <p class="text-sm font-bold text-gray-900 mb-2">AGRIDATA DECISION</p>
+        <p class="text-xs text-gray-500">© 2026 - Document Confidentiel de Recrutement.</p>
+    </footer>
+
+    <!-- AI Drawer -->
+    <div id="aiChatDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[100] border-l border-gray-200 flex flex-col">
+        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-900">Assistant Visionnaire</span>
+            </div>
+            <button onclick="closeAiChat()" class="text-gray-400 hover:text-gray-900 text-xl">&times;</button>
+        </div>
+        <div id="chatMessages" class="flex-1 overflow-y-auto p-6 space-y-4 text-sm bg-white">
+            <div class="bg-gray-100 p-4 border border-gray-200 text-gray-700">
+                Bonjour. Je suis l'assistant du projet. Posez-moi vos questions sur le modèle économique, le cas du Togo ou la technologie.
+            </div>
+        </div>
+        <div class="p-4 border-t border-gray-100 bg-gray-50">
+            <div class="flex gap-2">
+                <input type="text" id="chatInput" placeholder="Votre question..." class="flex-1 p-3 border border-gray-300 text-sm outline-none focus:border-gray-900">
+                <button onclick="sendChatMessage()" class="bg-gray-900 text-white px-4 py-2 hover:bg-black">Envoyer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matchmaker Modal -->
+    <div id="matchmakerModal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4 bg-gray-900/50 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-lg shadow-2xl border border-gray-200">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-gray-900">Analyse de Compatibilité</h3>
+                    <button onclick="closeMatchmaker()" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+                </div>
+                <p class="text-sm text-gray-600 mb-4">Collez votre bio professionnelle. L'IA analysera votre adéquation avec nos besoins.</p>
+                <textarea id="matchmakerInput" rows="5" class="w-full p-3 border border-gray-300 text-sm mb-6 outline-none focus:border-gray-900" placeholder="Ex: 10 ans d'expérience en vente B2B..."></textarea>
+                <button onclick="analyzeCompatibility()" class="btn-primary w-full">Analyser</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        function switchRole(role) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.role-content').forEach(content => content.classList.add('hidden'));
+            document.getElementById('tab-' + role).classList.add('active');
+            document.getElementById('content-' + role).classList.remove('hidden');
+        }
+
+        // AI Chat functions
+        function openAiChat() {
+            document.getElementById('aiChatDrawer').classList.remove('translate-x-full');
+        }
+
+        function closeAiChat() {
+            document.getElementById('aiChatDrawer').classList.add('translate-x-full');
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            if (input.value.trim()) {
+                const userMessage = document.createElement('div');
+                userMessage.className = 'bg-gray-900 text-white p-4 ml-12';
+                userMessage.textContent = input.value;
+                messages.appendChild(userMessage);
+                
+                // Simulate AI response
+                setTimeout(() => {
+                    const aiMessage = document.createElement('div');
+                    aiMessage.className = 'bg-gray-100 p-4 mr-12 text-gray-700';
+                    aiMessage.textContent = 'Merci pour votre question. Je vais y répondre...';
+                    messages.appendChild(aiMessage);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+                
+                input.value = '';
+            }
+        }
+
+        // Matchmaker functions
+        function openMatchmaker() {
+            document.getElementById('matchmakerModal').classList.remove('hidden');
+        }
+
+        function closeMatchmaker() {
+            document.getElementById('matchmakerModal').classList.add('hidden');
+        }
+
+        function analyzeCompatibility() {
+            const input = document.getElementById('matchmakerInput').value;
+            if (input.trim()) {
+                alert('Analyse en cours... (Simulation)');
+                // Here you would send to your backend
+            }
+        }
+
+        // Form submission
+        document.getElementById('applyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Candidature envoyée ! (Simulation)');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriData Decision - Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --primary: #111827;
+            --accent: #059669;
+            --bg-light: #F9FAFB;
+            --border: #E5E7EB;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #374151;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #111827;
+        }
+
+        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            border: 1px solid var(--primary);
+        }
+        .btn-primary:hover {
+            background-color: #000;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            padding: 0.75rem 2rem;
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 0.875rem;
+            border: 1px solid #D1D5DB;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background-color: #F9FAFB;
+        }
+
+        .separator {
+            width: 3rem;
+            height: 2px;
+            background-color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <span class="font-bold text-lg tracking-wide text-gray-900 uppercase">AgriData<span class="text-emerald-700">Decision</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-500">
+                    <a href="index.html" class="hover:text-gray-900">Vision</a>
+                    <a href="solution.html" class="text-gray-900 border-b border-gray-900 pb-1">Solution</a>
+                    <a href="market.html" class="hover:text-gray-900">Marché</a>
+                    <a href="team.html" class="hover:text-gray-900">Équipe</a>
+                </div>
+                <button onclick="openAiChat()" class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-gray-900 border border-gray-200 px-4 py-2 hover:border-gray-900 transition">
+                    Assistant IA
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Solution Section -->
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="mb-16">
+                <div class="separator"></div>
+                <h2 class="text-3xl font-bold mb-6">La Solution : De l'image à la décision</h2>
+                <p class="max-w-3xl text-gray-600">
+                    Nous développons une plateforme SaaS d'analyse d'imagerie drone, orientée estimation de rendement. 
+                    Elle ne fournit pas seulement un chiffre, mais un niveau de fiabilité indispensable pour un usage institutionnel.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <div class="border-t border-gray-200 pt-6">
+                    <span class="text-4xl font-light text-gray-200 mb-4 block">01</span>
+                    <h3 class="text-xl font-bold mb-3">Acquisition Simplifiée</h3>
+                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+                        <li>Compatible tout drone (RGB, Multi, Hyper)</li>
+                        <li>Upload direct Mobile/Web</li>
+                        <li>Traitement automatisé rapide</li>
+                    </ul>
+                </div>
+                <div class="border-t border-gray-200 pt-6">
+                    <span class="text-4xl font-light text-gray-200 mb-4 block">02</span>
+                    <h3 class="text-xl font-bold mb-3">Analyse Intelligente</h3>
+                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+                        <li>Algorithmes calibrés par culture/région</li>
+                        <li>Intégration données terrain optionnelle</li>
+                        <li>Détection variabilité intra-parcellaire</li>
+                    </ul>
+                </div>
+                <div class="border-t border-gray-200 pt-6">
+                    <span class="text-4xl font-light text-gray-200 mb-4 block">03</span>
+                    <h3 class="text-xl font-bold mb-3">Insights Actionnables</h3>
+                    <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+                        <li>Estimation rendement (t/ha)</li>
+                        <li>Cartographie spatiale</li>
+                        <li><strong>Indicateur de Confiance</strong> (Unique)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 p-8 border border-gray-100">
+                <h3 class="text-lg font-bold mb-4">Facteurs de Différenciation</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600">
+                    <div class="flex items-start">
+                        <span class="mr-2 text-emerald-700 font-bold">—</span>
+                        <span>Calibration locale (cultures, climats, pratiques)</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="mr-2 text-emerald-700 font-bold">—</span>
+                        <span>Approche multi-capteurs (RGB, puis Multispectral/Hyperspectral)</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="mr-2 text-emerald-700 font-bold">—</span>
+                        <span>Transparence sur les variables explicatives (White box)</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="mr-2 text-emerald-700 font-bold">—</span>
+                        <span>Tarification adaptée aux contextes publics et pays émergents</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-100 py-12 text-center">
+        <p class="text-sm font-bold text-gray-900 mb-2">AGRIDATA DECISION</p>
+        <p class="text-xs text-gray-500">© 2026 - Document Confidentiel de Recrutement.</p>
+    </footer>
+
+    <!-- AI Drawer -->
+    <div id="aiChatDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[100] border-l border-gray-200 flex flex-col">
+        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-900">Assistant Visionnaire</span>
+            </div>
+            <button onclick="closeAiChat()" class="text-gray-400 hover:text-gray-900 text-xl">&times;</button>
+        </div>
+        <div id="chatMessages" class="flex-1 overflow-y-auto p-6 space-y-4 text-sm bg-white">
+            <div class="bg-gray-100 p-4 border border-gray-200 text-gray-700">
+                Bonjour. Je suis l'assistant du projet. Posez-moi vos questions sur le modèle économique, le cas du Togo ou la technologie.
+            </div>
+        </div>
+        <div class="p-4 border-t border-gray-100 bg-gray-50">
+            <div class="flex gap-2">
+                <input type="text" id="chatInput" placeholder="Votre question..." class="flex-1 p-3 border border-gray-300 text-sm outline-none focus:border-gray-900">
+                <button onclick="sendChatMessage()" class="bg-gray-900 text-white px-4 py-2 hover:bg-black">Envoyer</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // AI Chat functions
+        function openAiChat() {
+            document.getElementById('aiChatDrawer').classList.remove('translate-x-full');
+        }
+
+        function closeAiChat() {
+            document.getElementById('aiChatDrawer').classList.add('translate-x-full');
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            if (input.value.trim()) {
+                const userMessage = document.createElement('div');
+                userMessage.className = 'bg-gray-900 text-white p-4 ml-12';
+                userMessage.textContent = input.value;
+                messages.appendChild(userMessage);
+                
+                // Simulate AI response
+                setTimeout(() => {
+                    const aiMessage = document.createElement('div');
+                    aiMessage.className = 'bg-gray-100 p-4 mr-12 text-gray-700';
+                    aiMessage.textContent = 'Merci pour votre question. Je vais y répondre...';
+                    messages.appendChild(aiMessage);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+                
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
