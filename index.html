@@ -99,6 +99,34 @@
             padding: 5rem 0;
         }
         
+        /* Active nav link with animated underline */
+        .nav-link {
+            position: relative;
+            color: #78716c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #059669;
+            transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .nav-link.active {
+            color: #1C1917;
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: #1C1917;
+        }
+        
         /* Loading Animation */
         .dot-flashing {
             position: relative; width: 10px; height: 10px; border-radius: 5px; background-color: #059669; color: #059669;
@@ -127,17 +155,14 @@
                     <span class="font-bold text-lg tracking-wide text-gray-900 uppercase">AgriData<span class="text-emerald-700">Decision</span></span>
                 </div>
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-500 items-center">
-                    <a href="#vision" class="hover:text-gray-900 transition">Vision</a>
-                    <a href="#solution" class="hover:text-gray-900 transition">Solution</a>
-                    <a href="#market" class="hover:text-gray-900 transition">Marché</a>
-                    <a href="#team" class="hover:text-gray-900 transition text-gray-900 border-b border-gray-900 pb-1">Équipe</a>
-                    <a href="experience.html" class="hover:text-gray-900 transition">Expérience</a>
-                    <a href="differentiation.html" class="hover:text-gray-900 transition">Différenciation</a>
-                    <a href="valeur.html" class="hover:text-gray-900 transition">Valeur</a>
-                    <a href="gouvernance.html" class="hover:text-gray-900 transition">Gouvernance</a>
-                    <a href="#apply" class="px-4 py-2 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition">Rejoindre</a>
+                <div class="hidden md:flex flex-1 justify-center space-x-8 text-sm font-medium items-center">
+                    <a href="#vision" class="nav-link" data-section="vision">Vision</a>
+                    <a href="#solution" class="nav-link" data-section="solution">Solution</a>
+                    <a href="#market" class="nav-link" data-section="market">Marché</a>
+                    <a href="#team" class="nav-link" data-section="team">Équipe</a>
+                    <a href="gouvernance.html" class="nav-link">Gouvernance</a>
                 </div>
+                <a href="#apply" class="hidden md:inline-block px-4 py-2 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition">Rejoindre</a>
                 <!-- Mobile Menu Button -->
                 <button class="md:hidden" onclick="toggleMobileMenu()" id="menuBtn">
                     <i class="fas fa-bars text-2xl text-gray-900"></i>
@@ -149,9 +174,7 @@
                 <a href="#solution" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Solution</a>
                 <a href="#market" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Marché</a>
                 <a href="#team" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Équipe</a>
-                 <a href="experience.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded" onclick="toggleMobileMenu()">Expérience</a>
-                 <a href="differentiation.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded" onclick="toggleMobileMenu()">Différenciation</a>
-                 <a href="valeur.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded" onclick="toggleMobileMenu()">Valeur</a>
+
                  <a href="gouvernance.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded" onclick="toggleMobileMenu()">Gouvernance</a>
                  <a href="#apply" class="block px-4 py-2 text-sm text-emerald-600 font-semibold hover:bg-emerald-50 rounded" onclick="toggleMobileMenu()">Rejoindre l'Équipe</a>
             </div>
@@ -176,12 +199,7 @@
                 <button onclick="scrollToSection('team')" class="px-8 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     Voir les Rôles
                 </button>
-                <button onclick="scrollToSection('problem')" class="px-8 py-3 bg-white text-emerald-700 border border-emerald-200 rounded-lg font-semibold hover:bg-emerald-50 transition flex items-center">
-                    <i class="fa-solid fa-sparkles mr-2 text-emerald-500"></i> Découvrir la Tech 
-                </button>
-                    <a href="experience.html" class="px-8 py-3 bg-white text-emerald-700 border border-emerald-200 rounded-lg font-semibold hover:bg-emerald-50 transition inline-flex items-center">
-                        <i class="fa-solid fa-sparkles mr-2 text-emerald-500"></i> Découvrir la Tech ✨
-                    </a>
+                <button onclick="scrollToSection('problem')" class="px-8 py-3 bg-white text-emerald-700 border border-emerald-200 rounded-lg font-semibold hover:bg-emerald-50 transition">Découvrir la Tech</button>
     </header>
 
     <section id="problem" class="py-16 bg-gray-50 border-y border-gray-100">
@@ -193,10 +211,6 @@
                     <p class="text-gray-600 mb-6 text-justify">
                         L'estimation du rendement reste aujourd'hui un "black hole" technologique. En Afrique de l'Ouest, comme dans de nombreuses régions du monde, les États et les grands acteurs manquent de données fiables pour estimer les surfaces réellement cultivées, anticiper les volumes de production nationaux et planifier les importations/exportations pour assurer la sécurité alimentaire. Actuellement, les méthodes reposent sur des enquêtes déclaratives ou des observations terrain ponctuelles, générant des marges d'erreur élevées et une impossibilité totale de passer à l'échelle de manière fiable.
                     </p>
-                    <div class="bg-white p-6 border-l-4 border-gray-900 shadow-sm">
-                        <h4 class="font-bold text-gray-900 mb-2">Le Problème Actuel</h4>
-                        <p class="text-sm text-gray-600">L'estimation du rendement reste aujourd'hui un "black hole" technologique. En Afrique de l'Ouest, comme dans de nombreuses régions du monde, les États et les grands acteurs manquent de données fiables pour estimer les surfaces réellement cultivées, anticiper les volumes de production nationaux et planifier les importations/exportations pour assurer la sécurité alimentaire. Actuellement, les méthodes reposent sur des enquêtes déclaratives ou des observations terrain ponctuelles, générant des marges d'erreur élevées et une impossibilité totale de passer à l'échelle de manière fiable.</p>
-                    </div>
                 </div>
                 <div>
                     <!-- Facteurs de Différenciation -->
@@ -208,6 +222,12 @@
                             <li>Transparence sur les variables explicatives (White box)</li>
                             <li>Tarification adaptée aux contextes publics et pays émergents</li>
                         </ul>
+                    </div>
+                </div>
+                <div class="lg:col-span-2">
+                    <div class="bg-white p-6 border-l-4 border-gray-900 shadow-sm">
+                        <h4 class="font-bold text-gray-900 mb-2">Le Problème Actuel</h4>
+                        <p class="text-sm text-gray-600">L'estimation du rendement reste aujourd'hui un "black hole" technologique. En Afrique de l'Ouest, comme dans de nombreuses régions du monde, les États et les grands acteurs manquent de données fiables pour estimer les surfaces réellement cultivées, anticiper les volumes de production nationaux et planifier les importations/exportations pour assurer la sécurité alimentaire. Actuellement, les méthodes reposent sur des enquêtes déclaratives ou des observations terrain ponctuelles, générant des marges d'erreur élevées et une impossibilité totale de passer à l'échelle de manière fiable.</p>
                     </div>
                 </div>
             </div>
@@ -345,11 +365,7 @@
                         <p class="text-gray-600">Nous recherchons un CTO pour prendre en main l'intégralité de l'architecture technique et assurer la scalabilité de la plateforme. Ce profil devra posséder une expertise forte en ingénierie de données, en traitement d'images ou en télédétection. Sa mission consistera à transformer le pipeline d'analyse actuel en une infrastructure cloud puissante, capable de traiter des volumes massifs de données drone. Il sera le garant de la robustesse technologique et de l'innovation continue de nos algorithmes.</p>
                     </div>
 
-                    <div class="mt-8 pt-8 border-t border-gray-100">
-                        <button onclick="openMatchmaker()" class="btn-primary w-full md:w-auto">
-                            Vérifier ma compatibilité (IA)
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -362,7 +378,7 @@
                 <h2 class="text-3xl font-bold mb-8">Informations Complémentaires</h2>
             </div>
 
-            <div class="space-y-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
                     <h3 class="text-xl font-bold mb-4">État d'Avancement & Rôle du Fondateur</h3>
                     <p class="text-gray-600 text-justify">
@@ -395,6 +411,20 @@
                         <input type="text" name="name" placeholder="Nom" required class="w-full p-3 bg-gray-50 border border-gray-200 outline-none text-sm transition">
                     </div>
                     <div>
+                        <input type="text" name="firstname" placeholder="Prénoms" required class="w-full p-3 bg-gray-50 border border-gray-200 outline-none text-sm transition">
+                    </div>
+                    <div>
+                        <input type="text" name="country" placeholder="Pays" required class="w-full p-3 bg-gray-50 border border-gray-200 outline-none text-sm transition">
+                    </div>
+                    <div>
+                        <input type="tel" name="phone" placeholder="Téléphone" required class="w-full p-3 bg-gray-50 border border-gray-200 outline-none text-sm transition">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-5">
+                    <div>
+                        <input type="text" name="numero" placeholder="Numéro (ID/WhatsApp)" required class="w-full p-3 bg-gray-50 border border-gray-200 outline-none text-sm transition">
+                    </div>
+                    <div>
                         <input type="url" name="linkedin" placeholder="LinkedIn" required class="w-full p-3 bg-gray-50 border border-gray-200 outline-none text-sm transition">
                     </div>
                 </div>
@@ -411,7 +441,7 @@
 
     <footer class="bg-white border-t border-gray-100 py-12 text-center">
         <p class="text-sm font-bold text-gray-900 mb-2 uppercase">AGRIDATA DECISION</p>
-        <p class="text-xs text-gray-500">© 2026 - Document Confidentiel.</p>
+        <p class="text-xs text-gray-500">© 2026</p>
     </footer>
 
     <!-- Matchmaker Modal -->
@@ -459,6 +489,41 @@
                 menuBtn.innerHTML = '<i class="fas fa-times text-2xl text-gray-900"></i>';
             }
         }
+        
+        // Scroll Spy: Update active nav link based on visible section
+        function updateActiveNavLink() {
+            const sections = ['vision', 'solution', 'market', 'team', 'apply'];
+            const navLinks = document.querySelectorAll('.nav-link[data-section]');
+            
+            let activeSectionId = null;
+            for (const sectionId of sections) {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    // Check if section is in viewport (top of section within 30% from top)
+                    if (rect.top <= window.innerHeight * 0.3 && rect.bottom > 0) {
+                        activeSectionId = sectionId;
+                        break;
+                    }
+                }
+            }
+            
+            // Update all nav links
+            navLinks.forEach(link => {
+                const sectionId = link.getAttribute('data-section');
+                if (sectionId === activeSectionId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Listen to scroll events
+        window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+        
+        // Initialize on page load
+        window.addEventListener('load', updateActiveNavLink);
         
         
         function switchRole(role) {
@@ -523,7 +588,8 @@
         }
 
         
-        // Gestion du menu mobiledocument.getElementById('applyForm').addEventListener('submit', async (e) => {
+        // Gestion du menu mobile
+        document.getElementById('applyForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
             btn.innerText = "Envoi...";

@@ -6,22 +6,49 @@
     <title>Gouvernance & ESOP • AgriData Decision</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Active nav link with animated underline */
+        .nav-link {
+            position: relative;
+            color: #78716c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #059669;
+            transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .nav-link.active {
+            color: #1C1917;
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: #1C1917;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-stone-900 antialiased">
     <nav class="sticky top-0 z-50 bg-white border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="index.html" class="font-bold text-lg tracking-wide text-gray-900 uppercase">AgriData<span class="text-emerald-700">Decision</span></a>
-                <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600 items-center">
-                    <a href="index.html#vision" class="hover:text-gray-900">Vision</a>
-                    <a href="index.html#solution" class="hover:text-gray-900">Solution</a>
-                    <a href="index.html#market" class="hover:text-gray-900">Marché</a>
-                    <a href="index.html#team" class="hover:text-gray-900">Équipe</a>
-                    <a href="experience.html" class="hover:text-gray-900">Expérience</a>
-                    <a href="differentiation.html" class="hover:text-gray-900">Différenciation</a>
-                    <a href="valeur.html" class="hover:text-gray-900">Valeur</a>
-                    <a href="index.html#apply" class="px-4 py-2 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition">Rejoindre</a>
+                <div class="hidden md:flex flex-1 justify-center space-x-8 text-sm font-medium items-center">
+                    <a href="index.html#vision" class="nav-link" data-section="vision">Vision</a>
+                    <a href="index.html#solution" class="nav-link" data-section="solution">Solution</a>
+                    <a href="index.html#market" class="nav-link" data-section="market">Marché</a>
+                    <a href="index.html#team" class="nav-link" data-section="team">Équipe</a>
+                    <a href="gouvernance.html" class="nav-link active" id="gov-link">Gouvernance</a>
                 </div>
+                <a href="index.html#apply" class="hidden md:inline-block px-4 py-2 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition">Rejoindre</a>
             </div>
         </div>
     </nav>
@@ -57,7 +84,20 @@
 
     <footer class="bg-white border-t border-gray-100 py-8 text-center">
         <p class="text-sm font-bold text-gray-900 mb-2 uppercase">AGRIDATA DECISION</p>
-        <p class="text-xs text-gray-500">© 2026 - Document Confidentiel.</p>
+        <p class="text-xs text-gray-500">© 2026</p>
     </footer>
-</body>
-</html>
+    
+    <script>
+        // Scroll Spy: Update active nav link based on page context
+        function initNavLinks() {
+            // For external pages (gouvernance.html), highlight based on page name
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link[data-section]');
+            
+            // On pages other than index, don't highlight any section
+            // This is fine since the sections are on the main page
+        }
+        
+        // Initialize on page load
+        window.addEventListener('load', initNavLinks);
+    </script>
