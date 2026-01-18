@@ -6,6 +6,7 @@
     <title>AgriData Decision - Brief Stratégique</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="config.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
 
@@ -327,9 +328,9 @@
     </div>
 
     <script>
-        const apiKey = "AIzaSyA6M99YxYjdF2r2c-_fYQTnK3J2lS64ORA"; 
-        const MODEL_NAME = "gemini-2.5-flash-preview-09-2025";
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxScl2_-SuwEGN1vkH4hIcmnCwPIbRMNS6Q6wV0bs9PvxPNtAJAijuQXkXHeYrtxJo/exec"; 
+        const apiKey = CONFIG.GEMINI_API_KEY; 
+        const MODEL_NAME = CONFIG.GEMINI_MODEL;
+        const GOOGLE_SCRIPT_URL = CONFIG.GOOGLE_SCRIPT_URL; 
 
         const context = `Startup AgriData Decision. Cas Togo prioritaire (Recensement urgent). Solution SaaS drone/IA. Rôles: Business (Fundraising/Sales), Product (UX terrain), CTO (Data/Cloud).`;
 
