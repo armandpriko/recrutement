@@ -155,7 +155,7 @@
                     Voir les Rôles
                 </button>
                 <button class="px-8 py-3 bg-white text-emerald-700 border border-emerald-200 rounded-lg font-semibold hover:bg-emerald-50 transition flex items-center">
-                    <i class="fa-solid fa-sparkles mr-2 text-emerald-500"></i> Questionner la Vision ✨
+                    <i class="fa-solid fa-sparkles mr-2 text-emerald-500"></i> Découvrir la Tech ✨
                 </button>
             </div>
         </div>
@@ -179,6 +179,16 @@
                     <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-6">Comparatif Technologique</h4>
                     <div class="chart-container bg-white p-4 border border-gray-200">
                         <canvas id="impactChart"></canvas>
+                    </div>
+                    <!-- Facteurs de Différenciation -->
+                    <div class="mt-8 bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+                        <h4 class="font-bold text-gray-900 mb-4">Facteurs de Différenciation</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Calibration locale (cultures, climats, pratiques)</li>
+                            <li>Approche multi-capteurs (RGB, puis Multispectral/Hyperspectral)</li>
+                            <li>Transparence sur les variables explicatives (White box)</li>
+                            <li>Tarification adaptée aux contextes publics et pays émergents</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -474,7 +484,8 @@
         }
 
         window.onload = function() {
-            new Chart(document.getElementById('impactChart'), {
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            new Chart(ctx, {
                 type: 'radar',
                 data: {
                     labels: ['Précision', 'Vitesse', 'Échelle', 'Audit', 'Coût'],
@@ -501,10 +512,7 @@
                             max: 100,
                             ticks: {
                                 display: false,
-                                stepSize: 20,
-                                callback: function(value) {
-                                    return value;
-                                }
+                                stepSize: 20
                             }
                         }
                     },
