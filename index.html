@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriTech - Opportunité Co-Founder</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,700;1,400&display=swap');
@@ -126,12 +126,34 @@
                 <div class="flex items-center">
                     <span class="font-bold text-lg tracking-wide text-gray-900 uppercase">AgriData<span class="text-emerald-700">Decision</span></span>
                 </div>
-                <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-500">
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-500 items-center">
                     <a href="#vision" class="hover:text-gray-900 transition">Vision</a>
                     <a href="#solution" class="hover:text-gray-900 transition">Solution</a>
                     <a href="#market" class="hover:text-gray-900 transition">Marché</a>
                     <a href="#team" class="hover:text-gray-900 transition text-gray-900 border-b border-gray-900 pb-1">Équipe</a>
+                    <a href="experience.html" class="hover:text-gray-900 transition">Expérience</a>
+                    <a href="differentiation.html" class="hover:text-gray-900 transition">Différenciation</a>
+                    <a href="valeur.html" class="hover:text-gray-900 transition">Valeur</a>
+                    <a href="gouvernance.html" class="hover:text-gray-900 transition">Gouvernance</a>
+                    <a href="#apply" class="px-4 py-2 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition">Rejoindre</a>
                 </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" onclick="toggleMobileMenu()" id="menuBtn">
+                    <i class="fas fa-bars text-2xl text-gray-900"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4 space-y-2">
+                <a href="#vision" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Vision</a>
+                <a href="#solution" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Solution</a>
+                <a href="#market" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Marché</a>
+                <a href="#team" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Équipe</a>
+                 <a href="experience.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded" onclick="toggleMobileMenu()">Expérience</a>
+                 <a href="differentiation.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded" onclick="toggleMobileMenu()">Différenciation</a>
+                 <a href="valeur.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded" onclick="toggleMobileMenu()">Valeur</a>
+                 <a href="gouvernance.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded" onclick="toggleMobileMenu()">Gouvernance</a>
+                 <a href="#apply" class="block px-4 py-2 text-sm text-emerald-600 font-semibold hover:bg-emerald-50 rounded" onclick="toggleMobileMenu()">Rejoindre l'Équipe</a>
             </div>
         </div>
     </nav>
@@ -150,18 +172,19 @@
                 Transformez l'imagerie drone en indicateurs de rendement actionnables. 
                 De la planification souveraine à la sécurité alimentaire, nous comblons l'angle mort de la donnée agricole.
             </p>
-            <div class="mt-10 flex justify-center gap-4">
+            <div class="mt-10 flex justify-center gap-4 flex-wrap">
                 <button onclick="scrollToSection('team')" class="px-8 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     Voir les Rôles
                 </button>
-                <button class="px-8 py-3 bg-white text-emerald-700 border border-emerald-200 rounded-lg font-semibold hover:bg-emerald-50 transition flex items-center">
-                    <i class="fa-solid fa-sparkles mr-2 text-emerald-500"></i> Découvrir la Tech ✨
+                <button onclick="scrollToSection('problem')" class="px-8 py-3 bg-white text-emerald-700 border border-emerald-200 rounded-lg font-semibold hover:bg-emerald-50 transition flex items-center">
+                    <i class="fa-solid fa-sparkles mr-2 text-emerald-500"></i> Découvrir la Tech 
                 </button>
-            </div>
-        </div>
+                    <a href="experience.html" class="px-8 py-3 bg-white text-emerald-700 border border-emerald-200 rounded-lg font-semibold hover:bg-emerald-50 transition inline-flex items-center">
+                        <i class="fa-solid fa-sparkles mr-2 text-emerald-500"></i> Découvrir la Tech ✨
+                    </a>
     </header>
 
-    <section class="py-16 bg-gray-50 border-y border-gray-100">
+    <section id="problem" class="py-16 bg-gray-50 border-y border-gray-100">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 <div>
@@ -176,12 +199,8 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-6">Comparatif Technologique</h4>
-                    <div class="chart-container bg-white p-4 border border-gray-200">
-                        <canvas id="impactChart"></canvas>
-                    </div>
                     <!-- Facteurs de Différenciation -->
-                    <div class="mt-8 bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+                    <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
                         <h4 class="font-bold text-gray-900 mb-4">Facteurs de Différenciation</h4>
                         <ul class="list-disc list-inside text-gray-700 space-y-2">
                             <li>Calibration locale (cultures, climats, pratiques)</li>
@@ -361,7 +380,7 @@
         </div>
     </section>
 
-    <section class="section-padding bg-gray-50 border-t border-gray-200">
+    <section id="apply" class="section-padding bg-gray-50 border-t border-gray-200">
         <div class="max-w-2xl mx-auto px-6 text-center">
             <h2 class="text-2xl font-bold mb-8">Rejoindre l'Aventure</h2>
             <div class="mb-8 text-left">
@@ -420,7 +439,27 @@
 
         const context = `Startup AgriData Decision. Cas Togo prioritaire (Recensement urgent). Solution SaaS drone/IA. Rôles: Business (Fundraising/Sales), Product (UX terrain), CTO (Data/Cloud).`;
 
-        function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+        function scrollToSection(id) { 
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            // Fermer le menu mobile après navigation
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                document.getElementById('menuBtn').innerHTML = '<i class="fas fa-bars text-2xl text-gray-900"></i>';
+            }
+        }
+        
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuBtn = document.getElementById('menuBtn');
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuBtn.innerHTML = '<i class="fas fa-bars text-2xl text-gray-900"></i>';
+            } else {
+                menuBtn.innerHTML = '<i class="fas fa-times text-2xl text-gray-900"></i>';
+            }
+        }
+        
         
         function switchRole(role) {
             ['business', 'product', 'cto'].forEach(t => {
@@ -483,49 +522,8 @@
             btn.disabled = false;
         }
 
-        window.onload = function() {
-            const ctx = document.getElementById('impactChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: ['Précision', 'Vitesse', 'Échelle', 'Audit', 'Coût'],
-                    datasets: [{
-                        label: 'Actuel',
-                        data: [30, 20, 25, 10, 40],
-                        backgroundColor: 'rgba(156, 163, 175, 0.2)',
-                        borderColor: '#9CA3AF',
-                        borderWidth: 1
-                    }, {
-                        label: 'AgriData',
-                        data: [85, 90, 80, 95, 75],
-                        backgroundColor: 'rgba(5, 150, 105, 0.2)',
-                        borderColor: '#059669',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            min: 0,
-                            max: 100,
-                            ticks: {
-                                display: false,
-                                stepSize: 20
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        }
-                    }
-                }
-            });
-        };
-
-        document.getElementById('applyForm').addEventListener('submit', async (e) => {
+        
+        // Gestion du menu mobiledocument.getElementById('applyForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
             btn.innerText = "Envoi...";
